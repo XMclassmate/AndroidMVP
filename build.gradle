@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+
+        //      maven { url "http://192.168.2.65:81/nexus/content/groups/public/" }//公司内部maven库存放了一些公有类库
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.1'
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.5"
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+
+        classpath("com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:${TINKERPATCH_VERSION}") {
+            changing = true
+        }
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://raw.githubusercontent.com/Pgyer/mvn_repo_pgyer/master" }
+
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+
+        //      maven { url "http://192.168.2.65:81/nexus/content/groups/public/" }//公司内部maven库存放了一些公有类库
+    }
+}
+
+ext {
+    compileSdkVersion = 26
+    buildToolsVersion = "27.0.3"
+    minSdkVersion = 16
+    targetSdkVersion = 26
+    mserverUrl = "mserver"
+}
+
+
+//flutter配置
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':mvptest')
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
