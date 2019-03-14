@@ -1,3 +1,9 @@
-include ':AndroidMVP_library', ':mvptest'
+include ':AndroidMVP_library', ':app'
+
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+        settingsDir.parentFile,
+        'flutter_mvp/.android/include_flutter.groovy'
+))
 
 
