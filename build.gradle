@@ -41,16 +41,3 @@ ext {
     mserverUrl = "mserver"
 }
 
-
-//flutter配置
-rootProject.buildDir = '../build'
-subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
-    project.evaluationDependsOn(':mvptest')
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
