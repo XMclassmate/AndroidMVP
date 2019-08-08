@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.xm.mvptest.R;
+import com.xm.mvptest.app.BaseActivity;
 import com.xm.mvptest.modules.flutter.TestFlutterActivity;
 import com.xm.mvptest.service.SiginService;
 import com.xm.mvptest.utils.ShellUtils;
@@ -28,7 +29,7 @@ import lib.xm.mvp.util.log.LogUtils;
  * Created by XMclassmate on 2018/4/20.
  */
 
-public class TestActivity extends AbstractActivity<TestPresenter> implements TestContract.IView, View.OnClickListener {
+public class TestActivity extends BaseActivity<TestPresenter> implements TestContract.IView, View.OnClickListener {
     Button btn_http;
     Button btn_log;
     Button btn_permission;
@@ -123,7 +124,7 @@ public class TestActivity extends AbstractActivity<TestPresenter> implements Tes
 
     @Override
     public void showProgressPage(Object obj) {
-
+        showProgressDialog();
     }
 
     @Override
