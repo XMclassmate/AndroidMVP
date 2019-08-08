@@ -124,7 +124,7 @@ public class TestActivity extends BaseActivity<TestPresenter> implements TestCon
 
     @Override
     public void showProgressPage(Object obj) {
-        showProgressDialog();
+        showProgressDialog(null);
     }
 
     @Override
