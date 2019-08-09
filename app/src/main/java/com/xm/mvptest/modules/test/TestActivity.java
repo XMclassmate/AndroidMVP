@@ -122,15 +122,6 @@ public class TestActivity extends BaseActivity<TestPresenter> implements TestCon
         tv.setText(str);
     }
 
-    @Override
-    public void showProgressPage(Object obj) {
-        showProgressDialog(null);
-    }
-
-    @Override
-    public void hideProgressPage() {
-
-    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {

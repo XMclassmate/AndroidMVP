@@ -53,6 +53,7 @@ public class MyApplication extends AbstractApplication {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        LogUtils.startRecord();
         MultiDex.install(this);
     }
 

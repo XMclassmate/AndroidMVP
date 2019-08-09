@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="LaunchPageTheme" parent="BaseAppTheme">
+        <item name="android:windowBackground">@mipmap/ic_launcher</item>
+    </style>
+
 </resources>

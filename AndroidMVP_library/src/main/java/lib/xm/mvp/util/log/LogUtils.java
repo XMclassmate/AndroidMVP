@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 public final class LogUtils {
 
     private static LogPrinter logPrinter = LogPrinterImpl.newInstance();
+    private static long sTime;
 
     public static void init(boolean allowLog, @Nullable String sdLogFloderName) {
         logPrinter.setAllowLog(allowLog);
@@ -179,5 +180,13 @@ public final class LogUtils {
 
     public static void saveThrowableToSD(Throwable throwable) {
         logPrinter.saveThrowableToSD(throwable);
+    }
+
+    public static void startRecord(){
+        sTime = System.currentTimeMillis();
+    }
+
+    public static void endRecord(String msg){
+        tag("record-time").printThread(true).e(msg + ":"+ (System.currentTimeMillis() - sTime));
     }
 }

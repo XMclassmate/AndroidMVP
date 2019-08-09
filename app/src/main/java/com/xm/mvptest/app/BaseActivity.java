@@ -14,13 +14,14 @@ import com.xm.mvptest.R;
 import lib.xm.mvp.app.ProgressDialog;
 import lib.xm.mvp.base.AbstractActivity;
 import lib.xm.mvp.base.AbstractPresenter;
+import lib.xm.mvp.base.BaseView;
 import lib.xm.mvp.util.CommonUtil;
 
 /**
  * Created by XMclassmate on 2018/7/25.
  */
 
-public abstract class BaseActivity<T extends AbstractPresenter> extends AbstractActivity<T> {
+public abstract class BaseActivity<T extends AbstractPresenter> extends AbstractActivity<T> implements BaseView {
 
     private Dialog progressDialog;
 
@@ -35,6 +36,16 @@ public abstract class BaseActivity<T extends AbstractPresenter> extends Abstract
         return super.dispatchTouchEvent(ev);
     }
 
+    @Override
+    public void showProgressPage(@Nullable Object obj) {
+        showProgressDialog(obj.toString());
+    }
+
+    @Override
+    public void hideProgressPage() {
+        hideProgressDialog();
+    }
+
     /**
      * 进度条颜色，需要改变颜色可重写此方法
      * @return
@@ -45,7 +56,7 @@ public abstract class BaseActivity<T extends AbstractPresenter> extends Abstract
     /**
      * 显示进度，需要自定义的进度弹窗可重写此方法
      */
-    protected void showProgressDialog(@Nullable String msg) {
+    private void showProgressDialog(@Nullable String msg) {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(this, R.style.TransleteTheme, getProgressColor(), msg);
         }
@@ -63,7 +74,7 @@ public abstract class BaseActivity<T extends AbstractPresenter> extends Abstract
     /**
      * 隐藏进度
      */
-    protected void hideProgressDialog() {
+    private void hideProgressDialog() {
         if (progressDialog != null) {
             runOnUiThread(new Runnable() {
                 @Override

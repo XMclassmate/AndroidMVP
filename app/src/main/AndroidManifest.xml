@@ -34,17 +34,23 @@
         <meta-data android:name="design_height"
             android:value="1280"/>
 
+        <activity android:name=".modules.launch.WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LaunchPageTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".modules.main.MainActivity">
 
         </activity>
 
         <activity android:name=".modules.test.TestActivity"
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity-alias
