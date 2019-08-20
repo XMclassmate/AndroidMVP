@@ -102,7 +102,7 @@ public class TestPresenter extends AbstractPresenter<TestContract.IView> impleme
 
     @Override
     public void icona() {
-        ComponentName def = new ComponentName((TestActivity)iView, "com.xm.mvptest.modules.test.TestActivity");
+        ComponentName def = new ComponentName((TestActivity)iView, "com.xm.mvptest.modules.launch.WelcomeActivity");
         ComponentName icona = new ComponentName((TestActivity)iView, "com.xm.mvptest.modules.alias.LaunchActivityA");
         ComponentName iconb = new ComponentName((TestActivity)iView, "com.xm.mvptest.modules.alias.LaunchActivityB");
         disEnableAlias(((TestActivity)iView).getComponentName());
@@ -111,7 +111,7 @@ public class TestPresenter extends AbstractPresenter<TestContract.IView> impleme
 
     @Override
     public void iconb() {
-        ComponentName def = new ComponentName((TestActivity)iView, "com.xm.mvptest.modules.test.TestActivity");
+        ComponentName def = new ComponentName((TestActivity)iView, "com.xm.mvptest.modules.launch.WelcomeActivity");
         ComponentName icona = new ComponentName((TestActivity)iView, "com.xm.mvptest.modules.alias.LaunchActivityA");
         ComponentName iconb = new ComponentName((TestActivity)iView, "com.xm.mvptest.modules.alias.LaunchActivityB");
         disEnableAlias(((TestActivity)iView).getComponentName());

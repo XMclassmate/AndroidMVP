@@ -104,10 +104,10 @@ public class TestActivity extends BaseActivity<TestPresenter> implements TestCon
                 break;
             case R.id.btn_to_main:
                 presenter.icona();
+//                presenter.iconb();
                 break;
             case R.id.btn_sigin:
-//                presenter.sigin();
-                presenter.iconb();
+                presenter.sigin();
                 break;
             case R.id.btn_to_flutter:
                 startActivity(new Intent(this, TestFlutterActivity.class));

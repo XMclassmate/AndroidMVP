@@ -26,7 +26,7 @@ public class SiginService extends Service {
 
     private Disposable disposable;
 
-    private IMyAidlInterface iMyAidlInterface = new IMyAidlInterface() {
+    private IMyAidlInterface.Stub binder = new IMyAidlInterface.Stub() {
         @Override
         public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, String aString) throws RemoteException {
 
@@ -36,12 +36,8 @@ public class SiginService extends Service {
         public String testGetString() throws RemoteException {
             return null;
         }
-
-        @Override
-        public IBinder asBinder() {
-            return null;
-        }
     };
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -64,7 +60,7 @@ public class SiginService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return binder;
     }
 
     private void sigin(){

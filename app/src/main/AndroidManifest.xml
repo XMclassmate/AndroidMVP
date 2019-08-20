@@ -49,13 +49,13 @@
         </activity>
 
         <activity android:name=".modules.test.TestActivity"
-            >
+            android:screenOrientation="portrait">
 
         </activity>
 
         <activity-alias
             android:name="com.xm.mvptest.modules.alias.LaunchActivityA"
-            android:targetActivity=".modules.test.TestActivity"
+            android:targetActivity=".modules.launch.WelcomeActivity"
             android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
@@ -68,7 +68,7 @@
 
         <activity-alias
             android:name="com.xm.mvptest.modules.alias.LaunchActivityB"
-            android:targetActivity=".modules.test.TestActivity"
+            android:targetActivity=".modules.launch.WelcomeActivity"
             android:label="@string/sever_error"
             android:icon="@drawable/huodong_bg"
             android:exported="true"

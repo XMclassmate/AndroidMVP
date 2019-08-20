@@ -1,10 +1,13 @@
 package com.xm.mvptest.modules.launch;
 
+import android.content.Intent;
+import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.xm.mvptest.R;
 import com.xm.mvptest.app.BaseActivity;
+import com.xm.mvptest.modules.test.TestActivity;
 
 import lib.xm.mvp.util.log.LogUtils;
 
@@ -58,6 +61,12 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> implements W
         });
         tv_content.setText("广发卡过IE如过过过过过");
 
+        tv_content.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, TestActivity.class));
+            }
+        });
     }
 
 }
