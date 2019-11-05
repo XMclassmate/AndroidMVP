@@ -1,6 +1,8 @@
 package com.xm.mvptest.modules.launch;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
@@ -18,6 +20,8 @@ import lib.xm.mvp.util.log.LogUtils;
 public class WelcomeActivity extends BaseActivity<WelcomePresenter> implements WelcomeContract.IView {
 
     TextView tv_content;
+    int count = 5;
+    CountDownTimer timer;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_welcome;
@@ -59,14 +63,31 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> implements W
                 return true;
             }
         });
-        tv_content.setText("广发卡过IE如过过过过过");
 
         tv_content.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(WelcomeActivity.this, TestActivity.class));
+                if (timer != null) timer.cancel();
             }
         });
+
+
+        timer = new CountDownTimer(5*1000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                LogUtils.e((count)+"   "+ millisUntilFinished);
+                tv_content.setText((count--)+"   "+ millisUntilFinished);
+            }
+
+            @Override
+            public void onFinish() {
+                tv_content.setText("");
+                startActivity(new Intent(WelcomeActivity.this, TestActivity.class));
+                if (timer != null)
+                timer.cancel();
+            }
+        }.start();
     }
 
 }

@@ -1,7 +1,10 @@
 package com.xm.mvptest.modules.launch;
 
+import android.content.Intent;
+
 import com.xm.mvptest.app.tasks.DelayTaskA;
 import com.xm.mvptest.app.tasks.DelayTaskB;
+import com.xm.mvptest.modules.test.TestActivity;
 
 import lib.xm.mvp.base.AbstractPresenter;
 import lib.xm.mvp.launchstarter.DelayInitDispatcher;

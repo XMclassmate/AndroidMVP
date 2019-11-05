@@ -17,6 +17,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import lib.xm.mvp.util.DeviceUtils;
+import lib.xm.mvp.util.ThreadUtil;
 import lib.xm.mvp.util.ToastUtil;
 
 /**
@@ -70,8 +71,8 @@ public class HttpUtil {
      * @param <T>
      */
     public static <T extends BaseResult> void execute(Observable<T> observable, Observer<T> observer) {
-        observable.subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
+        observable.subscribeOn(Schedulers.from(ThreadUtil.getmThreadPoolExecutor()))
+                .observeOn(Schedulers.from(ThreadUtil.getmThreadPoolExecutor()))
                 .doOnNext(new Consumer<T>() {
                     @Override
                     public void accept(T t) throws Exception {

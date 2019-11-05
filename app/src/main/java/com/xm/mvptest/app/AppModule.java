@@ -9,6 +9,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import lib.xm.mvp.listener.OkHttpEventListener;
 import lib.xm.mvp.util.MyHttpLogIntercepter;
 import lib.xm.mvp.util.SSLUtil;
 import lib.xm.mvp.util.log.LogUtils;
@@ -45,6 +46,7 @@ public class AppModule {
             if (SSLUtil.getTrustManger() != null) {
                 okHttpClient = new OkHttpClient().newBuilder().sslSocketFactory(SSLUtil.getSocketFactory(), SSLUtil.getTrustManger())
                         .addInterceptor(interceptor)
+                        .eventListenerFactory(OkHttpEventListener.FACTORY)
                         .readTimeout(1, TimeUnit.MINUTES)
                         .connectTimeout(1, TimeUnit.MINUTES)
                         .writeTimeout(1, TimeUnit.MINUTES)
@@ -52,6 +54,7 @@ public class AppModule {
             } else {
                 okHttpClient = new OkHttpClient().newBuilder().sslSocketFactory(SSLUtil.getSocketFactory())
                         .addInterceptor(interceptor)
+                        .eventListenerFactory(OkHttpEventListener.FACTORY)
                         .readTimeout(1, TimeUnit.MINUTES)
                         .connectTimeout(1, TimeUnit.MINUTES)
                         .writeTimeout(1, TimeUnit.MINUTES)
@@ -61,6 +64,7 @@ public class AppModule {
             LogUtils.e("证书校验报错了!");
             okHttpClient = new OkHttpClient().newBuilder()
                     .addInterceptor(interceptor)
+                    .eventListenerFactory(OkHttpEventListener.FACTORY)
                     .readTimeout(1, TimeUnit.MINUTES)
                     .connectTimeout(1, TimeUnit.MINUTES)
                     .writeTimeout(1, TimeUnit.MINUTES)

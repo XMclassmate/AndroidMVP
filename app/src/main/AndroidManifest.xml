@@ -81,6 +81,9 @@
 
         <activity android:name=".modules.flutter.TestFlutterActivity"/>
 
+        <activity android:name=".modules.memory.MemoryActivity"
+            android:screenOrientation="portrait"/>
+
         <service android:name=".service.SiginService"
             android:exported="true"
             android:stopWithTask="false"

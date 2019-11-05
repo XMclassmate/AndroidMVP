@@ -80,5 +80,6 @@ dependencies {
     api("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") {
         changing = true
     }
+    api 'me.weishu:epic:0.6.0'
 
 }

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.xm.mvptest.R;
 import com.xm.mvptest.app.BaseActivity;
 import com.xm.mvptest.modules.flutter.TestFlutterActivity;
+import com.xm.mvptest.modules.memory.MemoryActivity;
 import com.xm.mvptest.service.SiginService;
 import com.xm.mvptest.utils.ShellUtils;
 
@@ -36,6 +37,7 @@ public class TestActivity extends BaseActivity<TestPresenter> implements TestCon
     Button btn_toMain;
     Button btn_sign;
     Button btn_to_flutter;
+    Button btn_to_memory;
     TextView tv;
 
     @Override
@@ -62,6 +64,7 @@ public class TestActivity extends BaseActivity<TestPresenter> implements TestCon
         btn_sign = findViewById(R.id.btn_sigin);
         btn_to_flutter = findViewById(R.id.btn_to_flutter);
         tv = findViewById(R.id.tv_content);
+        btn_to_memory = findViewById(R.id.btn_to_memory);
 
         Intent intent1 = new Intent(this, SiginService.class);
         startService(intent1);
@@ -75,6 +78,7 @@ public class TestActivity extends BaseActivity<TestPresenter> implements TestCon
         btn_toMain.setOnClickListener(this);
         btn_sign.setOnClickListener(this);
         btn_to_flutter.setOnClickListener(this);
+        btn_to_memory.setOnClickListener(this);
     }
 
     @Override
@@ -111,6 +115,9 @@ public class TestActivity extends BaseActivity<TestPresenter> implements TestCon
                 break;
             case R.id.btn_to_flutter:
                 startActivity(new Intent(this, TestFlutterActivity.class));
+                break;
+            case R.id.btn_to_memory:
+                startActivity(new Intent(this, MemoryActivity.class));
                 break;
             default:
                 break;

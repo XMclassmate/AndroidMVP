@@ -49,4 +49,8 @@ public class ThreadUtil {
     public static synchronized void start(Runnable runnable) {
         M_THREAD_POOL_EXECUTOR.execute(runnable);
     }
+
+    public static Executor getmThreadPoolExecutor() {
+        return M_THREAD_POOL_EXECUTOR;
+    }
 }
