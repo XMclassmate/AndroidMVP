@@ -17,6 +17,7 @@ import com.xm.mvptest.app.tasks.GetDeviceIdTask;
 import com.xm.mvptest.app.tasks.InitBuglyTask;
 import com.xm.mvptest.app.tasks.InitDraggerTask;
 import com.xm.mvptest.app.tasks.InitTinkerTask;
+import com.xm.mvptest.app.tasks.TestJobSchedulerTask;
 
 import lib.xm.mvp.base.AbstractApplication;
 import lib.xm.mvp.launchstarter.TaskDispatcher;
@@ -45,6 +46,7 @@ public class MyApplication extends AbstractApplication {
                 .addTask(new InitBuglyTask())
                 .addTask(new GetDeviceIdTask())
                 .addTask(new InitTinkerTask())
+                .addTask(new TestJobSchedulerTask())
                 .start();
         taskDispatcher.await();
     }
